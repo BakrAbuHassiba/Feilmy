@@ -11,7 +11,6 @@ const userSchema = new mongoose.Schema(
       match: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     },
     password: { type: String, required: true, minLength: 6 },
-    age: { type: Number, required: true, min: 18, max: 50 },
     favoriteMovies: [{ type: String, ref: "Movie" }],
     watchlist: [{ type: String, ref: "Movie" }],
     isAdmin: { type: Boolean, default: false },
@@ -30,4 +29,4 @@ userSchema.methods.matchPassword = async function (enterdPassword) {
 };
 
 const User = mongoose.model("User", userSchema);
-module.exports = User;
+export default User;

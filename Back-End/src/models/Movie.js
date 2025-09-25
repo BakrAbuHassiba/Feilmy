@@ -6,6 +6,11 @@ const movieScehma = new mongoose.Schema(
     genre: [{ type: String }],
     rating: { type: Number, default: 0 },
     releaseYear: { type: Number },
+    views: { type: Number, default: 0 },
+    duration: { type: Number },
+    director: { type: String },
+    cast: [{ type: String }],
+    
   },
   { timestamps: true }
 );
