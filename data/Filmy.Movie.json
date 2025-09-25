@@ -1,0 +1,88 @@
+[{
+  "_id": {
+    "$oid": "68d5810929408cefcc7198fe"
+  },
+  "title": "Inception",
+  "description": "A skilled thief leads a team into people's dreams to steal and plant ideas.",
+  "genre": [
+    "Sci-Fi",
+    "Action",
+    "Thriller"
+  ],
+  "rating": 8.8,
+  "releaseYear": 2010,
+  "views": 1200000,
+  "duration": 148,
+  "director": "Christopher Nolan",
+  "cast": [
+    "Leonardo DiCaprio",
+    "Joseph Gordon-Levitt",
+    "Ellen Page"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68d5810929408cefcc7198ff"
+  },
+  "title": "The Dark Knight",
+  "description": "Batman faces the Joker, a criminal mastermind who wants to plunge Gotham into chaos.",
+  "genre": [
+    "Action",
+    "Crime",
+    "Drama"
+  ],
+  "rating": 9,
+  "releaseYear": 2008,
+  "views": 2000000,
+  "duration": 152,
+  "director": "Christopher Nolan",
+  "cast": [
+    "Christian Bale",
+    "Heath Ledger",
+    "Aaron Eckhart"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68d5810929408cefcc719900"
+  },
+  "title": "Interstellar",
+  "description": "A group of explorers travel through a wormhole in space to save humanity.",
+  "genre": [
+    "Sci-Fi",
+    "Adventure",
+    "Drama"
+  ],
+  "rating": 8.6,
+  "releaseYear": 2014,
+  "views": 1800000,
+  "duration": 169,
+  "director": "Christopher Nolan",
+  "cast": [
+    "Matthew McConaughey",
+    "Anne Hathaway",
+    "Jessica Chastain"
+  ]
+},
+{
+  "_id": {
+    "$oid": "68d5810929408cefcc719901"
+  },
+  "title": "Avengers: Endgame",
+  "description": "The Avengers assemble to undo the damage caused by Thanos.",
+  "genre": [
+    "Action",
+    "Adventure",
+    "Fantasy"
+  ],
+  "rating": 8.4,
+  "releaseYear": 2019,
+  "views": 5000000,
+  "duration": 181,
+  "director": "Anthony Russo, Joe Russo",
+  "cast": [
+    "Robert Downey Jr.",
+    "Chris Evans",
+    "Scarlett Johansson"
+  ]
+}]

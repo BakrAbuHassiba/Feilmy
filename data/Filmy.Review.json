@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "68d5843d29408cefcc719905"
+  },
+  "user": "John Doe",
+  "movie": "Inception",
+  "comment": "Amazing movie with mind-bending visuals!",
+  "rating": 9
+},
+{
+  "_id": {
+    "$oid": "68d5844c29408cefcc719907"
+  },
+  "user": "Sarah Smith",
+  "movie": "The Dark Knight",
+  "comment": "Heath Ledger’s Joker was legendary.",
+  "rating": 10
+},
+{
+  "_id": {
+    "$oid": "68d5845629408cefcc719909"
+  },
+  "user": "Ali Hassan",
+  "movie": "Interstellar",
+  "comment": "Great mix of science and emotions.",
+  "rating": 8
+}]

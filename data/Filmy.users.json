@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "68d56b9929408cefcc7198f5"
+  },
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "Password123",
+  "favoriteMovies": [
+    "66f06b0ff9d3a7d8e0a5c901",
+    "66f06b0ff9d3a7d8e0a5c902"
+  ],
+  "watchlist": [
+    "66f06b0ff9d3a7d8e0a5c903"
+  ],
+  "isAdmin": false
+},
+{
+  "_id": {
+    "$oid": "68d56b9929408cefcc7198f6"
+  },
+  "name": "Jane Smith",
+  "email": "jane.smith@example.com",
+  "password": "Secret456",
+  "favoriteMovies": [
+    "66f06b0ff9d3a7d8e0a5c904"
+  ],
+  "watchlist": [
+    "66f06b0ff9d3a7d8e0a5c905",
+    "66f06b0ff9d3a7d8e0a5c906"
+  ],
+  "isAdmin": true
+},
+{
+  "_id": {
+    "$oid": "68d56b9929408cefcc7198f7"
+  },
+  "name": "Mike Johnson",
+  "email": "mike.j@example.com",
+  "password": "Mikey789",
+  "favoriteMovies": [],
+  "watchlist": [
+    "66f06b0ff9d3a7d8e0a5c907"
+  ],
+  "isAdmin": false
+}]
