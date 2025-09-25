@@ -1,13 +1,9 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema(
   {
     user: { type: String, ref: "User", required: true },
-    movie: {
-      type: String,
-      ref: "Movie",
-      required: true,
-    },
+    movie: { type: String, ref: "Movie", required: true },
     comment: { type: String, required: true },
     rating: { type: Number, min: 1, max: 10, required: true },
   },
@@ -15,4 +11,5 @@ const reviewSchema = new mongoose.Schema(
 );
 
 const Review = mongoose.model("Review", reviewSchema);
-module.exports= Review;
+
+export default Review;
