@@ -1,0 +1,275 @@
+[{
+  "_id": {
+    "$oid": "68d5810929408cefcc7198fe"
+  },
+  "title": "Inception",
+  "description": "A skilled thief leads a team into people's dreams to steal and plant ideas.",
+  "genre": [
+    "Sci-Fi",
+    "Action",
+    "Thriller"
+  ],
+  "rating": 8.8,
+  "releaseYear": 2010,
+  "views": 1200000,
+  "duration": 148,
+  "director": "Christopher Nolan",
+  "cast": [
+    "Leonardo DiCaprio",
+    "Joseph Gordon-Levitt",
+    "Ellen Page"
+  ],
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758907898/movies/r4maywiqsoxjlb3cp781.jpg"
+},
+{
+  "_id": {
+    "$oid": "68d5810929408cefcc7198ff"
+  },
+  "title": "The Dark Knight",
+  "description": "Batman faces the Joker, a criminal mastermind who wants to plunge Gotham into chaos.",
+  "genre": [
+    "Action",
+    "Crime",
+    "Drama"
+  ],
+  "rating": 9,
+  "releaseYear": 2008,
+  "views": 2000000,
+  "duration": 152,
+  "director": "Christopher Nolan",
+  "cast": [
+    "Christian Bale",
+    "Heath Ledger",
+    "Aaron Eckhart"
+  ],
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908771/the-dark-knight_nrzjbz.jpg"
+},
+{
+  "_id": {
+    "$oid": "68d5810929408cefcc719900"
+  },
+  "title": "Interstellar",
+  "description": "A group of explorers travel through a wormhole in space to save humanity.",
+  "genre": [
+    "Sci-Fi",
+    "Adventure",
+    "Drama"
+  ],
+  "rating": 8.6,
+  "releaseYear": 2014,
+  "views": 1800000,
+  "duration": 169,
+  "director": "Christopher Nolan",
+  "cast": [
+    "Matthew McConaughey",
+    "Anne Hathaway",
+    "Jessica Chastain"
+  ],
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908820/intersteller_lhinsw.jpg"
+},
+{
+  "_id": {
+    "$oid": "68d5810929408cefcc719901"
+  },
+  "title": "Avengers: Endgame",
+  "description": "The Avengers assemble to undo the damage caused by Thanos.",
+  "genre": [
+    "Action",
+    "Adventure",
+    "Fantasy"
+  ],
+  "rating": 8.4,
+  "releaseYear": 2019,
+  "views": 5000000,
+  "duration": 181,
+  "director": "Anthony Russo, Joe Russo",
+  "cast": [
+    "Robert Downey Jr.",
+    "Chris Evans",
+    "Scarlett Johansson"
+  ],
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908579/Endgame_rhix0v.jpg"
+},
+{
+  "_id": {
+    "$oid": "68d6d3620a163a8d965027ef"
+  },
+  "title": "Thor: Ragnarok",
+  "genre": [
+    "Action",
+    "Adventure",
+    "Fantasy"
+  ],
+  "releaseYear": 2017,
+  "director": "Taika Waititi",
+  "cast": [
+    "Chris Hemsworth",
+    "Tom Hiddleston",
+    "Cate Blanchett",
+    "Mark Ruffalo"
+  ],
+  "description": "Thor must escape the alien planet Sakaar in time to save Asgard from Hela and the impending Ragnarok.",
+  "watchlist": [],
+  "rating": 7.9,
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908580/Thor_Ragnarok_xffyuf.jpg"
+},
+{
+  "_id": {
+    "$oid": "68d6d3620a163a8d965027f0"
+  },
+  "title": "The Sixth Sense",
+  "genre": [
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "releaseYear": 1999,
+  "director": "M. Night Shyamalan",
+  "cast": [
+    "Bruce Willis",
+    "Haley Joel Osment",
+    "Toni Collette"
+  ],
+  "description": "A boy who communicates with spirits seeks the help of a disheartened child psychologist.",
+  "watchlist": [],
+  "rating": 8.2,
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908579/The_Sixth_Sense_ehwxrw.png"
+},
+{
+  "_id": {
+    "$oid": "68d6d3620a163a8d965027f1"
+  },
+  "title": "Spider-Man: No Way Home",
+  "genre": [
+    "Action",
+    "Adventure",
+    "Fantasy"
+  ],
+  "releaseYear": 2021,
+  "director": "Jon Watts",
+  "cast": [
+    "Tom Holland",
+    "Zendaya",
+    "Benedict Cumberbatch",
+    "Andrew Garfield",
+    "Tobey Maguire"
+  ],
+  "description": "With Spider-Man’s identity revealed, Peter Parker seeks Doctor Strange’s help, which leads to dangerous multiverse consequences.",
+  "watchlist": [],
+  "rating": 8.3,
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908579/spider-man-no-way-home_qsb3dh.webp"
+},
+{
+  "_id": {
+    "$oid": "68d6d3620a163a8d965027f2"
+  },
+  "title": "Avengers: Infinity War",
+  "genre": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+  ],
+  "releaseYear": 2018,
+  "director": "Anthony Russo, Joe Russo",
+  "cast": [
+    "Robert Downey Jr.",
+    "Chris Hemsworth",
+    "Chris Evans",
+    "Scarlett Johansson"
+  ],
+  "description": "The Avengers and their allies must sacrifice everything to stop Thanos before he destroys half the universe.",
+  "watchlist": [],
+  "rating": 8.4,
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908578/infinity-war_mdrrjc.jpg"
+},
+{
+  "_id": {
+    "$oid": "68d6d3620a163a8d965027f3"
+  },
+  "title": "The Conjuring",
+  "genre": [
+    "Horror",
+    "Mystery",
+    "Thriller"
+  ],
+  "releaseYear": 2013,
+  "director": "James Wan",
+  "cast": [
+    "Vera Farmiga",
+    "Patrick Wilson",
+    "Ron Livingston",
+    "Lili Taylor"
+  ],
+  "description": "Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.",
+  "watchlist": [],
+  "rating": 7.5,
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908578/conjuring_dlubex.jpg"
+},
+{
+  "_id": {
+    "$oid": "68d6d3620a163a8d965027f4"
+  },
+  "title": "Midnight in Paris",
+  "genre": [
+    "Comedy",
+    "Fantasy",
+    "Romance"
+  ],
+  "releaseYear": 2011,
+  "director": "Woody Allen",
+  "cast": [
+    "Owen Wilson",
+    "Rachel McAdams",
+    "Marion Cotillard"
+  ],
+  "description": "A screenwriter finds himself mysteriously going back to the 1920s every day at midnight in Paris.",
+  "watchlist": [],
+  "rating": 7.7,
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908578/midnight-in-paris_qngb9y.jpg"
+},
+{
+  "_id": {
+    "$oid": "68d6d3620a163a8d965027f5"
+  },
+  "title": "Iron Man",
+  "genre": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+  ],
+  "releaseYear": 2008,
+  "director": "Jon Favreau",
+  "cast": [
+    "Robert Downey Jr.",
+    "Gwyneth Paltrow",
+    "Terrence Howard",
+    "Jeff Bridges"
+  ],
+  "description": "After being held captive, billionaire engineer Tony Stark creates a unique armored suit to fight evil.",
+  "watchlist": [],
+  "rating": 7.9,
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908578/iron-man_jodfd8.jpg"
+},
+{
+  "_id": {
+    "$oid": "68d6d3620a163a8d965027f6"
+  },
+  "title": "Dune",
+  "genre": [
+    "Action",
+    "Adventure",
+    "Drama"
+  ],
+  "releaseYear": 2021,
+  "director": "Denis Villeneuve",
+  "cast": [
+    "Timothée Chalamet",
+    "Rebecca Ferguson",
+    "Oscar Isaac",
+    "Zendaya"
+  ],
+  "description": "Paul Atreides must travel to the dangerous desert planet Arrakis to ensure the future of his people.",
+  "watchlist": [],
+  "rating": 8,
+  "image": "https://res.cloudinary.com/dgpxrx8cp/image/upload/v1758908578/dune_hhi5ds.jpg"
+}]
