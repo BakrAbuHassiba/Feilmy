@@ -270,7 +270,7 @@ body {
   transition: 1s all ease-in-out;
 }
 
-.arrow {
+.right-arrow {
   font-size: 120px;
   position: absolute;
   top: 90px;
@@ -278,6 +278,17 @@ body {
   color: lightgray;
   opacity: 0.5;
   cursor: pointer;
+}
+
+.left-arrow {
+  font-size: 120px;
+  position: absolute;
+  top: 90px;
+  left: 0;
+  color: lightgray;
+  opacity: 0.5;
+  cursor: pointer;
+  z-index: 100;
 }
 
 .container.active {
