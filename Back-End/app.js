@@ -5,12 +5,11 @@ import userRoutes from "./src/routes/users.route.js";
 import movieRoutes from "./src/routes/movies.route.js";
 import reviewRoutes from "./src/routes/reviews.route.js";
 import authRoutes from "./src/routes/auth.route.js";
-import cors from "cors"
+import cors from "cors";
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-app.use(cors())
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Welcome Page");

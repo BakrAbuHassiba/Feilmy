@@ -1,6 +1,7 @@
+// auth.middleware.js
 import jwt from "jsonwebtoken";
 
-const authMiddleware = (req, res, next) => {
+export const authMiddleware = (req, res, next) => {
   try {
     const token = req.headers.authorization?.split(" ")[1];
 
@@ -22,4 +23,9 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-export default authMiddleware;
+export const isAdmin = (req, res, next) => {
+  if (!req.user?.isAdmin) {
+    return res.status(403).json({ msg: "Only admins can perform this action" });
+  }
+  next();
+};

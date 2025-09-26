@@ -1,4 +1,46 @@
 import Movie from "../models/Movie.js";
+import cloudinary from "../../config/cloudinary.js";
+import streamifier from "streamifier";
+
+// helper to wrap upload_stream in a Promise
+const uploadToCloudinary = (fileBuffer) => {
+  return new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      { folder: "movies" }, // Cloudinary folder
+      (error, result) => {
+        if (error) reject(error);
+        else resolve(result);
+      }
+    );
+    streamifier.createReadStream(fileBuffer).pipe(stream);
+  });
+};
+
+export const createMovie = async (req, res) => {
+  try {
+    let imageUrl = null;
+
+    if (req.file) {
+      const result = await uploadToCloudinary(req.file.buffer);
+      imageUrl = result.secure_url;
+    }
+
+    const movie = new Movie({
+      ...req.body,
+      image: imageUrl,
+    });
+
+    await movie.save();
+    res.status(201).json({ msg: "Movie created", movie });
+  } catch (error) {
+    console.error(" Error creating movie:", error);
+
+    res.status(500).json({
+      msg: "Internal server error",
+      error: error.message,
+    });
+  }
+};
 
 export const getAllMovies = async (req, res) => {
   try {
@@ -24,23 +66,22 @@ export const getMovieById = async (req, res) => {
   }
 };
 
-export const createMovie = async (req, res) => {
-  try {
-    const movie = new Movie(req.body);
-    await movie.save();
-    res.status(201).json({ msg: "Movie created", movie });
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-};
+// export const createMovie = async (req, res) => {
+//   try {
+//     const movie = new Movie(req.body);
+//     await movie.save();
+//     res.status(201).json({ msg: "Movie created", movie });
+//   } catch (error) {
+//     res.status(400).json({ message: error.message });
+//   }
+// };
 
 export const updateMovie = async (req, res) => {
   try {
-    const movie = await Movie.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true, runValidators: true }
-    );
+    const movie = await Movie.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
     if (!movie) {
       return res.status(404).json({ message: "Movie not found" });
     }

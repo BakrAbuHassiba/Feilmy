@@ -11,6 +11,7 @@ const movieScehma = new mongoose.Schema(
     duration: { type: Number },
     director: { type: String },
     cast: [{ type: String }],
+    image: { type: String },
   },
   { timestamps: true }
 );

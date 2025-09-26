@@ -6,11 +6,18 @@ import {
   updateMovie,
   deleteMovie,
 } from "../controller/movies.controller.js";
+import upload from "../middlewares/upload.js";
+import { authMiddleware, isAdmin } from "../middlewares/auth.middleware.js";
+
 const router = express.Router();
 
 router.get("/", getAllMovies);
 router.get("/:id", getMovieById);
-router.post("/", createMovie);
-router.put("/:id", updateMovie);
-router.delete("/:id", deleteMovie);
+
+router.post("/", authMiddleware, isAdmin, upload.single("image"), createMovie);
+
+router.put("/:id", authMiddleware, isAdmin, updateMovie);
+
+router.delete("/:id", authMiddleware, isAdmin, deleteMovie);
+
 export default router;
