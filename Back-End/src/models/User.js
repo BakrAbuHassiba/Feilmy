@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema(
     },
     password: { type: String, required: true, minLength: 6 },
     favoriteMovies: [{ type: String, ref: "Movie" }],
-    watchlist: [{ type: String, ref: "Movie" }],
+    watchlist: [{ type: mongoose.Schema.Types.ObjectId, ref: "Movie" }],
     isAdmin: { type: Boolean, default: false },
   },
   { timestamps: true }

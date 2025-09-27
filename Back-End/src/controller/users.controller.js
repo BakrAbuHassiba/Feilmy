@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import Movie from "../models/Movie.js";
 
 export const getAllUsers = async (req, res) => {
   try {
@@ -53,20 +54,51 @@ export const deleteUser = async (req, res) => {
 export const addToWatchList = async (req, res) => {
   try {
     const { userId, movieId } = req.params;
-    const user = await User
-      .findByIdAndUpdate(
-        userId,
-        { $addToSet: { watchlist: movieId } },
-        { new: true }
-      )
-      .populate("watchlist");
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { $addToSet: { watchlist: movieId } },
+      { new: true }
+    ).populate("watchlist");
 
     if (!user) {
       if (!user) return res.status(404).json({ msg: "User not found" });
     }
     res.json({ msg: "Movie added to watchlist", watchlist: user.watchlist });
-  } catch (err) {
-    res.status(500).json({ msg: "Server error", error: err.message });
+  } catch (error) {
+    res.status(500).json({ msg: "Server error", error: error.message });
+  }
+};
+export const getWatchList = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const user = await User.findById(userId).populate("watchlist");
+    if (!user) {
+      if (!user) return res.status(404).json({ msg: "User not found" });
+    }
+    res.status(200).json({
+      msg: "The Watchlist got successflly ",
+      watchlist: user.watchlist,
+    });
+  } catch (error) {
+    res.status(500).json({ msg: "Server error", error: error.message });
+  }
+};
+
+export const getFavMovies = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const user = await User.findById(userId).populate("favoriteMovies");
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+    res
+      .status(200)
+      .json({
+        msg: "The Favorite Movies got successfully ",
+        favoriteMovies: user.favoriteMovies,
+      });
+  } catch (error) {
+    res.status(500).json({ msg: "interal server error", error: error.message });
   }
 };
 

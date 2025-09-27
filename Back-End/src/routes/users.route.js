@@ -6,6 +6,8 @@ import {
   deleteUser,
   addToFavorite,
   addToWatchList,
+  getWatchList,
+  getFavMovies,
 } from "../controller/users.controller.js";
 const router = express.Router();
 import validateId from "../middlewares/validateId.middleware.js";
@@ -15,25 +17,26 @@ router.param("id", validateId);
 
 router.get("/", authMiddleware, isAdmin, getAllUsers);
 router.get("/:id", getUserById);
+router.get("/watchlist/:userId", authMiddleware, getWatchList);
+router.get("/favorite-movies/:userId", authMiddleware,getFavMovies);
 router.put("/:id", isAdmin, authMiddleware, updateUser);
 router.delete("/:id", isAdmin, authMiddleware, deleteUser);
 
 router.post("/:userId/favorites/:movieId", authMiddleware, addToFavorite);
 router.post("/:userId/watchlist/:movieId", authMiddleware, addToWatchList);
 
-
 /**
  * @swagger
  * tags:
  *   name: Users
- *   description: 
+ *   description:
  */
 
 /**
  * @swagger
  * /users:
  *   get:
- *     
+ *
  *     tags: [Users]
  *     security:
  *       - bearerAuth: []
@@ -48,7 +51,7 @@ router.post("/:userId/watchlist/:movieId", authMiddleware, addToWatchList);
  * @swagger
  * /users/{id}:
  *   get:
- *     
+ *
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -82,7 +85,7 @@ router.post("/:userId/watchlist/:movieId", authMiddleware, addToWatchList);
  *       200:
  *         description: User updated
  *   delete:
- *     
+ *
  *     tags: [Users]
  *     security:
  *       - bearerAuth: []
@@ -140,6 +143,73 @@ router.post("/:userId/watchlist/:movieId", authMiddleware, addToWatchList);
  *     responses:
  *       200:
  *         description: Movie added to watchlist
+ */
+
+/**
+ * @swagger
+ * /users/watchlist/{userId}:
+ *   get:
+ *     summary: Get all movies in a user's watchlist
+ *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         description: The ID of the user
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: List of movies in the user's watchlist
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 watchlist:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Movie'
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Server error
+ */
+
+
+/**
+ * @swagger
+ * /users/favorite-movies/{userId}:
+ *   get:
+ *     summary: Get all movies in a user's favorite list
+ *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         description: The ID of the user
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: List of movies in the user's favorite list
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 watchlist:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Movie'
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Server error
  */
 
 export default router;
