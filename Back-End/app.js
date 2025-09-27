@@ -1,19 +1,17 @@
 import express from "express";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import { swaggerUi, swaggerSpec } from "./config/swagger.js";
 
-dotenv.config();
+import userRoutes from "./src/routes/users.route.js";
+import movieRoutes from "./src/routes/movies.route.js";
+import reviewRoutes from "./src/routes/reviews.route.js";
+import authRoutes from "./src/routes/auth.route.js";
 
 const app = express();
-
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection failed:", err.message));
+dotenv.config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,7 +20,7 @@ app.use(
     origin: [
       "http://127.0.0.1:5500",
       "http://localhost:5500",
-      "https://filmy-dusky.vercel.app",
+      "https://filmy-dusky.vercel.app"
     ],
     credentials: true,
   })
@@ -31,38 +29,23 @@ app.use(
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+/*  Swagger FIRST */
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// app.use(
-//   "/api-docs/",
-//   swaggerUi.serve,
-//   swaggerUi.setup(swaggerSpec, {
-//     explorer: true,
-//   })
-// );
+/*  Then API routes */
+app.use("/api/users", userRoutes);
+app.use("/api/movies", movieRoutes);
+app.use("/api/reviews", reviewRoutes);
+app.use("/api/auth", authRoutes);
 
-app.use(
-  express.static(path.join(__dirname, "../Front-End/Filmy"), {
-    index: "index.html",
-    extensions: ["html"],
-  })
-);
-
-app.get("/api-docs/*", swaggerUi.serve);
-
+/*  Then static frontend */
 app.use(express.static(path.join(__dirname, "../Front-End/Filmy")));
-app.use("/api/users", (await import("./src/routes/users.route.js")).default);
-app.use("/api/movies", (await import("./src/routes/movies.route.js")).default);
-app.use(
-  "/api/reviews",
-  (await import("./src/routes/reviews.route.js")).default
-);
-app.use("/api/auth", (await import("./src/routes/auth.route.js")).default);
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../Front-End/Filmy/index.html"));
 });
 
+/*  Catch-all */
 app.use((req, res) => {
   res.status(404).send("Not Found");
 });
