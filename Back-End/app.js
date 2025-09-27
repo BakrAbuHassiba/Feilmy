@@ -34,6 +34,10 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "../Front-End/Filmy")));
 
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.get("/api-docs/*", (req, res, next) => {
+  res.setHeader("Content-Type", "application/javascript");
+  next();
+});
 app.use(
   "/api-docs/",
   swaggerUi.serve,
