@@ -6,6 +6,7 @@ import {
   updateMovie,
   deleteMovie,
   incrementView,
+  getMoviesByTitle,
 } from "../controller/movies.controller.js";
 import upload from "../middlewares/upload.js";
 import { authMiddleware, isAdmin } from "../middlewares/auth.middleware.js";
@@ -19,6 +20,7 @@ router.post("/", authMiddleware, isAdmin, upload.single("image"), createMovie);
 router.put("/:id", authMiddleware, isAdmin, updateMovie);
 router.patch("/:id", authMiddleware, incrementView);
 router.delete("/:id", authMiddleware, isAdmin, deleteMovie);
+router.get("/search/title", getMoviesByTitle);
 
 /**
  * @swagger
@@ -166,4 +168,56 @@ router.delete("/:id", authMiddleware, isAdmin, deleteMovie);
  *       403:
  *         description: Forbidden (only admins)
  */
+
+/**
+ * @swagger
+ * /movies/search/title:
+ *   get:
+ *     
+ *     tags: [Movies]
+ *     parameters:
+ *       - in: query
+ *         name: title
+ *         required: true
+ *         description: The title or partial title of the movie to search
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: List of movies matching the search title
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Movie'
+ *       400:
+ *         description: Missing or empty title query parameter
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *       404:
+ *         description: No movies found with that title
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ */
+
 export default router;

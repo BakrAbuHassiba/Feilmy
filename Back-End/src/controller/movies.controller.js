@@ -114,3 +114,28 @@ export const incrementView = async (req, res) => {
     });
   }
 };
+
+export const getMoviesByTitle = async (req, res) => {
+  try {
+    let title = req.query.title;
+
+    if (!title || title.trim() === "") {
+      return res.status(400).json({ message: "Please provide a movie title to search" });
+    }
+
+  
+    title = title.trim();
+
+    const movies = await Movie.find({
+      title: { $regex: title, $options: "i" },
+    });
+
+    if (movies.length === 0) {
+      return res.status(404).json({ message: "No movies found with that title" });
+    }
+
+    res.status(200).json(movies);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
