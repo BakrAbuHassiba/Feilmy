@@ -10,6 +10,10 @@
 //   });
 //   ball.classList.toggle("active");
 // });
+const API_BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5050/api"
+    : "https://filmy-dusky.vercel.app/api";
 
 const ball = document.querySelector(".toggle-ball");
 const items = document.querySelectorAll(
@@ -80,7 +84,9 @@ document.querySelectorAll(".menu-list a, .sidebar a").forEach((link) => {
 });
 
 async function getMovies() {
-  let res = await fetch("http://localhost:5050/api/movies/");
+  // let res = await fetch("http://localhost:5050/api/movies/");
+  const res = await fetch(`${API_BASE_URL}/movies/`);
+
   let data = await res.json();
   return data.movies;
 }

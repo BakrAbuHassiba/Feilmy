@@ -27,7 +27,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     localStorage.setItem("isLoggedIn", "true"); // ✅ Set login status
     alert("Login successful!");
 
-    window.location.href = "/Feilmy/Front-End/Filmy/index.html";
+    window.location.href = "../Filmy/index.html";
   } catch (err) {
     console.error("Login error:", err);
     alert("Something went wrong, try again later.");
