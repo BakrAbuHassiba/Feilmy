@@ -1,5 +1,6 @@
 // const mongoose = require("mongoose");
 import mongoose from "mongoose";
+
 const movieScehma = new mongoose.Schema(
   {
     title: { type: String, required: true },
