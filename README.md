@@ -20,16 +20,19 @@ It allows users to explore movies, add reviews, and manage data with authenticat
 
 ## 📦 Installation & Setup
 1. Clone the repo
-2. npm install
-3. Create a .env file in the root with:
+   git clone https://github.com/BakrAbuHassiba/Filmy.git
+2. cd Filmy
+3. npm install
+4. Create a .env file in the root with:
   MONGO_URL=your_mongo_atlas_url
   PORT=3000
   TKN_KEY=your_secret_token
   CLOUDINARY_CLOUD_NAME=xxxx
   CLOUDINARY_API_KEY=xxxx
-4. Run the project:
+  CLOUDINARY_API_SECRET=xxxx
+5. Run the project:
    npm start
-5. Access Swagger docs at:
+6. Access Swagger docs at:
    http://localhost:3000/api-docs
 
 🔮 Future Plans
@@ -39,7 +42,4 @@ It allows users to explore movies, add reviews, and manage data with authenticat
   Build user profile
 
 🌐 Full frontend integration with frameworks
-CLOUDINARY_API_SECRET=xxxx
 
-   git clone https://github.com/BakrAbuHassiba/Filmy.git
-   cd Filmy
