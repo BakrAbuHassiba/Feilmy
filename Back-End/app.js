@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, "../Front-End/Filmy")));
 
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(
-  "/api-docs",
+  "/api-docs/",
   swaggerUi.serve,
   swaggerUi.setup(swaggerSpec, {
     explorer: true,
