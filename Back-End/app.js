@@ -20,7 +20,9 @@ app.use(
     origin: [
       "http://127.0.0.1:5500",
       "http://localhost:5500",
-      "https://filmy-dusky.vercel.app"
+      "http://localhost:3000",
+      "https://filmy-dusky.vercel.app",
+      "https://filmy-frontend.vercel.app",
     ],
     credentials: true,
   })
