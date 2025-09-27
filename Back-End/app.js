@@ -1,37 +1,10 @@
-// import express from "express";
-// const app = express();
-// import dotenv from "dotenv";
-// import userRoutes from "./src/routes/users.route.js";
-// import movieRoutes from "./src/routes/movies.route.js";
-// import reviewRoutes from "./src/routes/reviews.route.js";
-// import authRoutes from "./src/routes/auth.route.js";
-// import cors from "cors"
-
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-
-// app.use(cors())
-
-// app.get("/", (req, res) => {
-//   res.send("Welcome Page");
-// });
-
-// app.use("/api/users", userRoutes);
-// app.use("/api/movies", movieRoutes);
-// app.use("/api/reviews", reviewRoutes);
-// app.use("/api/auth", authRoutes);
-
-// app.use((req, res) => {
-//   res.send("Not Found");
-// });
-
-// export default app;
-
 import express from "express";
 import dotenv from "dotenv";
+const app = express();
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
+import { swaggerUi, swaggerSpec } from "./config/swagger.js";
 
 // Routes
 import userRoutes from "./src/routes/users.route.js";
@@ -39,18 +12,9 @@ import movieRoutes from "./src/routes/movies.route.js";
 import reviewRoutes from "./src/routes/reviews.route.js";
 import authRoutes from "./src/routes/auth.route.js";
 
-dotenv.config();
-
-const app = express();
-
-// Get __dirname in ES Module
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 app.use(
   cors({
     origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
@@ -58,11 +22,18 @@ app.use(
   })
 );
 
+// Get __dirname in ES Module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// ✅ CORRECTED: Serve static files from the correct path
 app.use(express.static(path.join(__dirname, "../")));
 
-// API Routes
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.get("/", (req, res) => {
+  res.send("Welcome Page");
+});
+
 app.use("/api/users", userRoutes);
 app.use("/api/movies", movieRoutes);
 app.use("/api/reviews", reviewRoutes);

@@ -57,7 +57,7 @@ export const signin = async (req, res) => {
 
     res
       .status(200)
-      .json({ msg: "You signed in successfully", user: existEmail, tkn });
+      .json({ msg: "You logged im successfully", user: existEmail, tkn });
   } catch (error) {
     res.status(500).json({ msg: "internal server error", error });
   }

@@ -32,20 +32,20 @@ export const createReview = async (req, res) => {
   }
 };
 
-export const updateReview = async (req, res) => {
-  try {
-    const review = await Review.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-    if (!review) {
-      res.status(404).json({ msg: "Review Not Found" });
-    }
-    res.status(200).json({ msg: "Review Updated ", review });
-  } catch (error) {
-    res.status(500).json({ msg: "internal server error", error: error });
-  }
-};
+// export const updateReview = async (req, res) => {
+//   try {
+//     const review = await Review.findByIdAndUpdate(req.params.id, req.body, {
+//       new: true,
+//       runValidators: true,
+//     });
+//     if (!review) {
+//       res.status(404).json({ msg: "Review Not Found" });
+//     }
+//     res.status(200).json({ msg: "Review Updated ", review });
+//   } catch (error) {
+//     res.status(500).json({ msg: "internal server error", error: error });
+//   }
+// };
 
 export const deleteReview = async (req, res) => {
   try {

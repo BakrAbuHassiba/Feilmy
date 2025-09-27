@@ -6,7 +6,7 @@ const schema = {
   properties: {
     name: {
       type: "string",
-      pattern: "^[A-Za-z]+( [A-Za-z]+)*$", // same regex as mongoose
+      pattern: "^[A-Za-z]+( [A-Za-z]+)*$",
       maxLength: 20,
     },
     email: {

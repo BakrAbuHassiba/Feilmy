@@ -49,3 +49,46 @@ export const deleteUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const addToWatchList = async (req, res) => {
+  try {
+    const { userId, movieId } = req.params;
+    const user = await User
+      .findByIdAndUpdate(
+        userId,
+        { $addToSet: { watchlist: movieId } },
+        { new: true }
+      )
+      .populate("watchlist");
+
+    if (!user) {
+      if (!user) return res.status(404).json({ msg: "User not found" });
+    }
+    res.json({ msg: "Movie added to watchlist", watchlist: user.watchlist });
+  } catch (err) {
+    res.status(500).json({ msg: "Server error", error: err.message });
+  }
+};
+
+export const addToFavorite = async (req, res) => {
+  try {
+    const { userId, movieId } = req.params;
+    const user = await User.findByIdAndUpdate(
+      userId,
+      {
+        $addToSet: { favoriteMovies: movieId },
+      },
+      { new: true }
+    ).populate("favoriteMovies");
+
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+    res.status(201).json({
+      msg: "Added to favorite list ",
+      favoriteMovies: user.favoriteMovies,
+    });
+  } catch (error) {
+    res.status(500).json({ msg: "Server error", error: error.message });
+  }
+};

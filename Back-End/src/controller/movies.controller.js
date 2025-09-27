@@ -66,16 +66,6 @@ export const getMovieById = async (req, res) => {
   }
 };
 
-// export const createMovie = async (req, res) => {
-//   try {
-//     const movie = new Movie(req.body);
-//     await movie.save();
-//     res.status(201).json({ msg: "Movie created", movie });
-//   } catch (error) {
-//     res.status(400).json({ message: error.message });
-//   }
-// };
-
 export const updateMovie = async (req, res) => {
   try {
     const movie = await Movie.findByIdAndUpdate(req.params.id, req.body, {
@@ -100,5 +90,27 @@ export const deleteMovie = async (req, res) => {
     res.status(200).json({ msg: "Movie deleted" });
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+export const incrementView = async (req, res) => {
+  try {
+    const movie = await Movie.findByIdAndUpdate(
+      req.params.id,
+      {
+        $inc: { views: 1 },
+      },
+      { new: true }
+    );
+    if (!movie) {
+      res.status(404).json({ msg: "Movie is not found" });
+    }
+    res.json({ msg: "View added ", movie });
+  } catch (error) {
+    console.error(" Error increment movie's views:", error);
+    res.status(500).json({
+      msg: "Internal server error",
+      error: error.message,
+    });
   }
 };

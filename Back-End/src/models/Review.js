@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema(
   {
-    user: { type: String, ref: "User", required: true },
-    movie: { type: String, ref: "Movie", required: true },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    movie: { type: mongoose.Schema.Types.ObjectId, ref: "Movie", required: true },
     comment: { type: String, required: true },
     rating: { type: Number, min: 1, max: 10, required: true },
   },
