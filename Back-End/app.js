@@ -6,13 +6,11 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { swaggerUi, swaggerSpec } from "./config/swagger.js";
 
-// Routes
 import userRoutes from "./src/routes/users.route.js";
 import movieRoutes from "./src/routes/movies.route.js";
 import reviewRoutes from "./src/routes/reviews.route.js";
 import authRoutes from "./src/routes/auth.route.js";
 
-// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
@@ -22,7 +20,6 @@ app.use(
   })
 );
 
-// Get __dirname in ES Module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -30,26 +27,19 @@ app.use(express.static(path.join(__dirname, "../")));
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.get("/", (req, res) => {
-  res.send("Welcome Page");
-});
-
 app.use("/api/users", userRoutes);
 app.use("/api/movies", movieRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/auth", authRoutes);
 
-// Root route - serve index.html
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../Front-End/index.html"));
 });
 
-// Serve other HTML files
 app.get("/Filmy/index.html", (req, res) => {
   res.sendFile(path.join(__dirname, "../Front-End/index.html"));
 });
 
-// 404 handler for anything else
 app.use((req, res) => {
   res.status(404).send("Not Found");
 });
