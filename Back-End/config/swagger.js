@@ -5,37 +5,32 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Feilmy API Documentation",
+      title: "Filmy API",
       version: "1.0.0",
-      description: "API documentation for Feilmy project (Movies & Users)",
+      description: "API documentation for Feilmy project",
     },
     servers: [
       {
-        url: "http://localhost:5050/api",
+        url: "http://localhost:5050/api", 
+      },
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
       },
     ],
   },
-  apis: ["./src/routes/*.js"],
+  apis: ["./src/routes/*.js"], 
 };
 
-const swaggerSpec = swaggerJsdoc(options);
-
-export { swaggerUi, swaggerSpec };
-
-// import swaggerAutogen from "swagger-autogen";
-
-// const doc = {
-//   info: { title: "My API", description: "API docs" },
-//   host: "localhost:5050",
-//   schemes: ["http"],
-  
-// };
-
-// const outputFile = "./swagger.json";
-// const endpointsFiles = [
-//   "../src/routes/movies.route.js",
-//   "../src/routes/auth.route.js",
-//   "../src/routes/users.route.js",
-// ];
-
-// swaggerAutogen(outputFile, endpointsFiles, doc);
+export const swaggerSpec = swaggerJsdoc(options);
+export { swaggerUi };

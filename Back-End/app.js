@@ -6,10 +6,14 @@ import movieRoutes from "./src/routes/movies.route.js";
 import reviewRoutes from "./src/routes/reviews.route.js";
 import authRoutes from "./src/routes/auth.route.js";
 import cors from "cors";
+import { swaggerUi, swaggerSpec } from "./config/swagger.js";
 
 app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
 app.use(cors());
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
   res.send("Welcome Page");
