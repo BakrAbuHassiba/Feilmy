@@ -31,8 +31,6 @@ app.use(
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(__dirname, "../Front-End/Filmy")));
-
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(
@@ -42,6 +40,7 @@ app.use(
     explorer: true,
   })
 );
+app.use(express.static(path.join(__dirname, "../Front-End/Filmy")));
 app.use("/api/users", (await import("./src/routes/users.route.js")).default);
 app.use("/api/movies", (await import("./src/routes/movies.route.js")).default);
 app.use(
