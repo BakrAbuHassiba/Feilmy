@@ -21,12 +21,13 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
       return;
     }
 
+    console.log("🎉 Login Successful for:", email);
+
     localStorage.setItem("token", data.tkn);
     localStorage.setItem("isLoggedIn", "true"); // ✅ Set login status
     alert("Login successful!");
 
     window.location.href = "/Feilmy/Front-End/Filmy/index.html";
-    
   } catch (err) {
     console.error("Login error:", err);
     alert("Something went wrong, try again later.");

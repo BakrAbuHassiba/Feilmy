@@ -9,14 +9,15 @@
 <body>
   <div class="register-container">
     <h2>Create Account</h2>
-    <form class="register-form">
-      <input type="text" placeholder="Username" required>
-      <input type="email" placeholder="Email" required>
-      <input type="password" placeholder="Password" required>
-      <input type="password" placeholder="Confirm Password" required>
+    <form class="register-form" id="register-form"> <!-- Added id here -->
+      <input type="text" id="username" placeholder="Username" required> <!-- Added id -->
+      <input type="email" id="email" placeholder="Email" required> <!-- Added id -->
+      <input type="password" id="password" placeholder="Password" required> <!-- Added id -->
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required> <!-- Added id -->
       <button type="submit">Register</button>
     </form>
     <p>Already have an account? <a href="../login/login.html">Login</a></p>
   </div>
+  <script src="../register/register.js"></script>
 </body>
 </html>

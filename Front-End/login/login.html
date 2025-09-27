@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="login.css">
 </head>
-
 <body>
   <div class="login-container">
     <div class="login-box">
       <h1>Login</h1>
-      <form class="login-form">
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Password" required>
+      <form class="login-form" id="login-form"> <!-- Added id here -->
+        <input type="email" id="email" placeholder="Email" required> <!-- Added id -->
+        <input type="password" id="password" placeholder="Password" required> <!-- Added id -->
         <button type="submit">Sign In</button>
         <p>Don't have an account? <a href="../register/register.html">Sign up</a></p>
       </form>
     </div>
   </div>
+  <script src="../login/login.js"></script> <!-- Make sure JS is included -->
 </body>
-
 </html>
