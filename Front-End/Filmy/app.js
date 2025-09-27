@@ -13,7 +13,7 @@
 const API_BASE_URL =
   window.location.hostname === "localhost"
     ? "http://localhost:5050/api"
-    : "https://filmy-dusky.vercel.app/api";
+    : "https://filmy-pszy4107g-bakrabuhassibas-projects.vercel.app/api";
 
 const ball = document.querySelector(".toggle-ball");
 const items = document.querySelectorAll(
@@ -30,7 +30,6 @@ ball.addEventListener("click", () => {
   const isDarkMode = document.body.classList.contains("active");
   localStorage.setItem("darkMode", isDarkMode);
 });
-
 
 // Check login status when page loads
 document.addEventListener("DOMContentLoaded", function () {
