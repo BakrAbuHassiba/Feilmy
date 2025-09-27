@@ -33,23 +33,20 @@ app.use(
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-/*  Swagger FIRST */
+
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-/*  Then API routes */
 app.use("/api/users", userRoutes);
 app.use("/api/movies", movieRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/auth", authRoutes);
 
-/*  Then static frontend */
-app.use(express.static(path.join(__dirname, "../Front-End/Filmy")));
+// app.use(express.static(path.join(__dirname, "../Front-End/Filmy")));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../Front-End/Filmy/index.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../Front-End/Filmy/index.html"));
+// });
 
-/*  Catch-all */
 app.use((req, res) => {
   res.status(404).send("Not Found");
 });
