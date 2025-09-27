@@ -33,13 +33,23 @@ const __dirname = path.dirname(__filename);
 
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+// app.use(
+//   "/api-docs/",
+//   swaggerUi.serve,
+//   swaggerUi.setup(swaggerSpec, {
+//     explorer: true,
+//   })
+// );
+
 app.use(
-  "/api-docs/",
-  swaggerUi.serve,
-  swaggerUi.setup(swaggerSpec, {
-    explorer: true,
+  express.static(path.join(__dirname, "../Front-End/Filmy"), {
+    index: "index.html",
+    extensions: ["html"],
   })
 );
+
+app.get("/api-docs/*", swaggerUi.serve);
+
 app.use(express.static(path.join(__dirname, "../Front-End/Filmy")));
 app.use("/api/users", (await import("./src/routes/users.route.js")).default);
 app.use("/api/movies", (await import("./src/routes/movies.route.js")).default);
