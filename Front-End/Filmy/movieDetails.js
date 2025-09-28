@@ -2,6 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const movieId = params.get("id");
 
 const detailsContainer = document.getElementById("movie-details");
+const API_URL = "https://filmy-5m8i.vercel.app";
 
 async function loadMovieDetails() {
   if (!movieId) {
@@ -41,7 +42,7 @@ async function loadMovieDetails() {
   `;
 
   try {
-    let res = await fetch(`http://localhost:5050/api/movies/${movieId}`);
+    let res = await fetch(`${API_URL}/api/movies/${movieId}`);
     
     if (!res.ok) {
       throw new Error(`Failed to fetch movie: ${res.status}`);
