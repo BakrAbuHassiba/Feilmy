@@ -10,7 +10,7 @@
 //   });
 //   ball.classList.toggle("active");
 // });
-const API_URL = "https://filmy-dusky.vercel.app";
+const API_URL = "https://filmy-5m8i.vercel.app";
 
 const ball = document.querySelector(".toggle-ball");
 const items = document.querySelectorAll(
@@ -23,12 +23,11 @@ ball.addEventListener("click", () => {
   });
   ball.classList.toggle("active");
 
-  // Toggle dark mode in localStorage
   const isDarkMode = document.body.classList.contains("active");
   localStorage.setItem("darkMode", isDarkMode);
 });
 
-// Check login status when page loads
+
 document.addEventListener("DOMContentLoaded", function () {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   const loginBtnLink = document.getElementById("login-btn-link");
@@ -51,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-//animation for sections
+
 const sections = document.querySelectorAll("section");
 const observer = new IntersectionObserver(
   (entries) => {
