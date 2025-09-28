@@ -3,9 +3,10 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
 
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-
+  const API_URL = "https://filmy-5m8i.vercel.app";
   try {
-    let res = await fetch("http://localhost:5050/api/auth/login", {
+    // let res = await fetch("http://localhost:5050/api/auth/login", {
+    let res = await fetch(`${API_URL}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +25,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     console.log("🎉 Login Successful for:", email);
 
     localStorage.setItem("token", data.tkn);
-    localStorage.setItem("isLoggedIn", "true"); // ✅ Set login status
+    localStorage.setItem("isLoggedIn", "true"); 
     alert("Login successful!");
 
     window.location.href = "../Filmy/index.html";
