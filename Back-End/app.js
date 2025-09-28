@@ -41,10 +41,10 @@ const __dirname = path.dirname(__filename);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // routes
-app.use("/users", userRoutes);
-app.use("/movies", movieRoutes);
-app.use("/reviews", reviewRoutes);
-app.use("/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/movies", movieRoutes);
+app.use("/api/reviews", reviewRoutes);
+app.use("/api/auth", authRoutes);
 
 // fallback route
 app.use((req, res) => {
