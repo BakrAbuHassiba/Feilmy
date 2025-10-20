@@ -17,17 +17,25 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:3000",
+//       "http://127.0.0.1:5500",
+//       "http://localhost:5500",
+//       "https://filmy-front.vercel.app",
+//       "https://filmy-front-bakrabuhassibas-projects.vercel.app",
+//       "https://filmy-front-git-main-bakrabuhassibas-projects.vercel.app",
+//       "https://filmy-front-6s43r4sps-bakrabuhassibas-projects.vercel.app",
+//     ],
+//     credentials: true,
+//   })
+// );
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://127.0.0.1:5500",
-      "http://localhost:5500",
-      "https://filmy-front.vercel.app",
-      "https://filmy-front-bakrabuhassibas-projects.vercel.app",
-      "https://filmy-front-git-main-bakrabuhassibas-projects.vercel.app",
-      "https://filmy-front-6s43r4sps-bakrabuhassibas-projects.vercel.app",
-    ],
+    origin: (origin, callback) => {
+      callback(null, origin || "*"); // allow all origins
+    },
     credentials: true,
   })
 );
