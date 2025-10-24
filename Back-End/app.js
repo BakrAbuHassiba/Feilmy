@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
+      "http://localhost:4200",
       "https://subtle-bavarois-d22d70.netlify.app",
       "http://localhost:3000",
       "http://127.0.0.1:5500",
